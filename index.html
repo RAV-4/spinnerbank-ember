@@ -2,24 +2,68 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ember Starter Kit</title>
+  <title>Spinner Bank</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
+    <h2>Clientes</h2>
 
     {{outlet}}
   </script>
 
-  <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each App as |item|}}
-      <li>{{item.model}}</li>
-    {{/each}}
-    </ul>
+<script type="text/x-handlebars" id="first-route">
+    <h2 {{action 'click_handler'}}>Primer Router</h2>
+
+
+
   </script>
+  <script type="text/x-handlebars" id="index">
+  
+  <h1>Tipo de Documento</h1>
+<style type="text/css">
+ .select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 240px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+
+    background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+</style>
+
+  <div class="select-style">
+  <select>
+    <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+    <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+    
+  </select>
+</div>
+
+  </script>
+
+
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/ember-template-compiler-2.0.1.js"></script>
