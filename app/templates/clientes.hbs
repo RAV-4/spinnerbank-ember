@@ -8,6 +8,19 @@
                     
                 </script>    
                 <p>{{input type="text" value=idClient placeholder=" Número de identificación: "}}</p>   
+                <strong>Tipo de Identificación</strong>
+
+
+                <p> <select class="selectpicker" data-style="btn-primary">
+                    <option>Cédula de Ciudadanía</option>
+                    <option>Tarjeta de Identidad</option>
+                    <option>Cédula de Extranjería</option>
+                  </select>
+                  </p>
+                  <script>
+                    $('.selectpicker').selectpicker();
+                    </script>
+
             </div>
             
         </div>        
