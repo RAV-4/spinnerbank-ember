@@ -1,27 +1,29 @@
-<div class="container">    
-    <div class="navbar" id="main">    
-        <div class="col-md-6">
-            <div class="well sidebar-nav">
-                <p> 
-                  <select class="select-style" >
-                    <option>Cédula de Ciudadanía</option>
-                    <option>Tarjeta de Identidad</option>
-                    <option>Cédula de Extranjería</option>
-                  </select>
-                  </p>
-
-
-                <strong>Buscar Cliente: </strong>
-               
-                <p>{{input type="text" value=idClient placeholder=" Número de identificación: "}}</p>   
-                <strong>Tipo de Identificación</strong>
-
-
-               
-                  
-
-            </div>
-            
-        </div>        
-    </div> 
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><strong>Buscar cliente: </strong></h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="navbar" id="main">    
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo de Identificación <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                  <li>Cédula de Ciudadanía</li>
+                                  <li>Tarjeta de Identidad</li>
+                                  <li>Cédula de Extranjeria</li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                            <p>{{input type="text" class="form-control" value=idClient placeholder=" Número de identificación: "}}</p>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Buscar</button>
+                            </span> 
+                        </div>                         
+                    </div>        
+                </div>     
+            </div>  
+        </div>
+    </div>                  
 </div> 
