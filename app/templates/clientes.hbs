@@ -34,11 +34,20 @@
     <div class="panel-body">
     <table class="table">
             <thead>
+
                 <tr>
                     <th>Nombre Cliente</th>
                     <th>Tipo de Documento</th>
                     <th>Numero de Documento</th>
                 </tr>
+                {{#each model as |item|}}
+                <tr>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.tipo}}</td>
+                    <td>{{item.saldo}}</td>
+
+                </tr>
+                {{/each}}
             </thead>
             <tbody>
               <!--  <tr>
