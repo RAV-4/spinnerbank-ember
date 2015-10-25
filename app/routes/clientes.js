@@ -9,10 +9,6 @@ export default Ember.Route.extend({
     	return data;
       }
     );
-<<<<<<< HEAD
+
   }
 });
-=======
-  }  
-});
->>>>>>> 6842821e34b7aa89cc84160ac715e71fe74bc5d6
