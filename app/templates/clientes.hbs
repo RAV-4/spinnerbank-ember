@@ -1,3 +1,4 @@
+<!-- Sección de Busqueda del Cliente -->
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -5,7 +6,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="navbar" id="main">    
+                <div class="navbar" id="main">
                     <div class="col-lg-6">
                         <div class="input-group">
                             <div class="input-group-btn">
@@ -18,19 +19,20 @@
                             </div><!-- /btn-group -->
                             <p>{{input type="text" class="form-control" value=idClient placeholder=" Número de identificación: "}}</p>
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Buscar</button>
-                            </span> 
-                        </div>                         
-                    </div>        
-                </div>     
-            </div>  
+                                <button {{action "compidClient"}}class="btn btn-default" type="button">Buscar</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> 
+    </div>
+</div>
 <!-- Información del Cliente -->
     <div class="panel panel-default">
-    <div class= "panel-heading"> 
+    <div class= "panel-heading">
       <h3 class="panel-title"><strong>Información del Cliente </strong></h3>
-    </div>  
+    </div>
     <div class="panel-body">
     <table class="table">
             <thead>
@@ -40,27 +42,49 @@
                     <th>Tipo de Documento</th>
                     <th>Numero de Documento</th>
                 </tr>
-                {{#each model as |item|}}
-                <tr>
-                    <td>{{item.nombre}}</td>
-                    <td>{{item.tipo}}</td>
-                    <td>{{item.saldo}}</td>
 
-                </tr>
-                {{/each}}
             </thead>
             <tbody>
-              <!--  <tr>
+              {{#each model as |item|}}
+              <tr>
+                  <td>{{item.nombre}}</td>
+                  <td>{{item.tipo}}</td>
+                  <td>{{item.saldo}}</td>
 
-                  {{#each model as |bear|}}
-                    <td>{{bear.number}}</td>
-                    <td>{{bear.title}}</td>
-                    <td>{{bear.html_url}}</td>
-                  {{/each}}
-                </tr>-->
+              </tr>
+              {{/each}}
             </tbody>
         </table>
 
-    </div> 
- </div>        
-</div> 
+    </div>
+ </div>
+
+
+<!--Lista de productos
+<div class="panel panel-default">
+  <div class= "panel-heading">
+    <h3 class="panel-title"><strong>Listado de Productos del Cliente:{{item.nombre}}</strong></h3>
+  </div>
+    <div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre del Producto</th>
+                <th>Tipo de Producto</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+          {{#each model as |item|}}
+            <tr>
+                <td>{{item.nombre}}</td>
+                <td>{{item.tipo}}</td>
+                <td>{{item.saldo}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+    </table>
+
+    </div>
+  </div>
+-- >
