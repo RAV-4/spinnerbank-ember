@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <form class="form-signin">
+        <h2 class="form-signin-heading text-center">Por favor loguese</h2>
+        <label for="inputEmail" class="sr-only">Dirección de Correo</label>
+        {{input type="email" id="inputEmail" value=entradaEmail class="form-control" placeholder="Dirección de Correo"}}         
+        <label for="inputPassword" class="sr-only">Constraseña</label>
+        {{input type="password" id="inputPassword" value=entradaPassword class="form-control" placeholder="Contraseña"}}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">{{#link-to "principal"}} Ingresar {{/link-to}}</button>
+    </form>
+</div>
