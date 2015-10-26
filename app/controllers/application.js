@@ -10,8 +10,8 @@ export default Ember.Controller.extend({
         desloguear: function() {
  
             this.set('isAuthenticated', false);
+            this.transitionToRoute('/');
 
         }
     }
-
 });

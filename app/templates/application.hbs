@@ -8,29 +8,30 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">SpinnerBank</a>
-            
+            <a class="navbar-brand" href="#">SpinnerBank</a>         
          </div>
+
          <div class="nav navbar-nav" id="bs-example-navbar-collapse-1">
-            {{#if isAuthenticated}}
-               <ul class="nav navbar-nav">               
-                  <li {{action "desloguear"}}>{{#link-to "clientes"}}Clientes{{/link-to}}</li>              
-               </ul>
-            {{else}}
-            
-            {{/if}}
+             {{#if isAuthenticated}}
+                 <ul class="nav navbar-nav">               
+                     <li>{{#link-to "clientes"}}Clientes{{/link-to}}</li>              
+                 </ul>
+             {{else}}
+                     
+             {{/if}}
          </div>
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
-               {{#if isAuthenticated}}
-                  <li><p class="navbar-text">Bienvenid@ {{nombreAsesor}} {{apellidoAsesor}}</p></li>
-                  <li>{{#link-to "login"}}Logout{{/link-to}}</li>
-               {{else}}
-                  <li>{{#link-to "login"}}Login{{/link-to}}</li>
-               {{/if}}
-               <li>{{#link-to 'contacto'}}Soporte{{/link-to}}</li>
-            </ul>
+             <ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
+                 {{#if isAuthenticated}}
+                     <li><p class="navbar-text">Bienvenid@ {{nombreAsesor}} {{apellidoAsesor}}</p></li>
+                     <li {{action "desloguear"}}>{{#link-to "login"}}Logout{{/link-to}}</li>
+                 {{else}}
+                     <li>{{#link-to "login"}}Login{{/link-to}}</li>
+                 {{/if}}
+                 <li>{{#link-to 'contacto'}}Soporte{{/link-to}}</li>
+             </ul>
          </div>
+ 
       </div>
    </div>
 </nav>

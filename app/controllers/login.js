@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
             let asesorMailReceptor = this.get('entradaEmail');
             let asesorPassReceptor = this.get('entradaPassword');
 
-            if(asesorMailReceptor === asesorMail || asesorPassReceptor === asesorPass){
+            if(asesorMailReceptor === asesorMail && asesorPassReceptor === asesorPass){
                 this.set('isAuthenticated', true);
                 this.transitionToRoute('clientes');
             } else {
