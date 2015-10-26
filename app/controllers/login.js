@@ -17,6 +17,7 @@ export default Ember.Controller.extend({
 
             if(asesorMailReceptor === asesorMail || asesorPassReceptor === asesorPass){
                 this.set('isAuthenticated', true);
+                this.transitionToRoute('clientes');
             } else {
                 this.set('loginFailed', true);
             }

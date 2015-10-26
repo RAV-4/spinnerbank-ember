@@ -14,8 +14,10 @@
          <div class="nav navbar-nav" id="bs-example-navbar-collapse-1">
             {{#if isAuthenticated}}
                <ul class="nav navbar-nav">               
-                  <li>{{#link-to "clientes"}}Clientes{{/link-to}}</li>              
+                  <li {{action "desloguear"}}>{{#link-to "clientes"}}Clientes{{/link-to}}</li>              
                </ul>
+            {{else}}
+            
             {{/if}}
          </div>
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
