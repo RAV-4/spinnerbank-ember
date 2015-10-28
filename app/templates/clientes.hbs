@@ -20,8 +20,16 @@
                             <p>{{input type="text" class="form-control" value=idClient placeholder=" Número de identificación: "}}</p>
                             <span class="input-group-btn">
                                 <button {{action "compidClient"}}class="btn btn-default" type="button">Buscar</button>
-                            </span>
+                            </span>  
                         </div>
+                         {{#if isFailed}}
+                                 
+                                 <div class="alert alert-danger" role="alert">                              
+                                  <span class="error"></span>
+                                  <span class="sr-only">Error:</span>
+                                  El  documento {{idClient}} no es valido.
+                                </div>
+                              {{/if}}
                     </div>
                 </div>
             </div>
@@ -58,33 +66,3 @@
 
     </div>
  </div>
-
-
-<!--Lista de productos
-<div class="panel panel-default">
-  <div class= "panel-heading">
-    <h3 class="panel-title"><strong>Listado de Productos del Cliente:{{item.nombre}}</strong></h3>
-  </div>
-    <div class="panel-body">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre del Producto</th>
-                <th>Tipo de Producto</th>
-                <th>Saldo</th>
-            </tr>
-        </thead>
-        <tbody>
-          {{#each model as |item|}}
-            <tr>
-                <td>{{item.nombre}}</td>
-                <td>{{item.tipo}}</td>
-                <td>{{item.saldo}}</td>
-            </tr>
-          {{/each}}
-        </tbody>
-    </table>
-
-    </div>
-  </div>
--- >

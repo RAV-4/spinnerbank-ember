@@ -69,3 +69,8 @@ nav .active {
 .select-style select:focus {
     outline: none;
 }
+
+
+.error{
+background-image: url(Drawing.png);
+}
