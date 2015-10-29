@@ -1,0 +1,7 @@
+[
+  { "nombre": "Maria", "apellido": "Osorno", "correo": "maria.osorno@spinnerbank.com", "contraseña": "osornoms"},
+  { "nombre": "Liliana", "apellido": "Botero", "correo": "liliana.botero@spinnerbank.com", "contraseña": "boterols"},
+  { "nombre": "Carlos", "apellido": "Aguirre", "correo": "carlos.aguirre@spinnerbank.com", "contraseña": "aguirrecs"},
+  { "nombre": "Andres", "apellido": "Lopez", "correo": "andres.lopez@spinnerbank.com", "contraseña": "lopezas"},
+  { "nombre": "Sara", "apellido": "Palacio", "correo": "sara.palacio@spinnerbank.com", "contraseña": "palacioss"}
+]

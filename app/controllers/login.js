@@ -2,10 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-    nombreAsesor: 'Maria',
-    apellidoAsesor: 'Osorno',
+    asesores: [],
     isAuthenticated: false,
-    loginFailed: false, 
+    loginFailed: false,
 
     actions: {
         loguear: function() {
