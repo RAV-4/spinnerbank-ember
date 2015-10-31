@@ -6,6 +6,7 @@ export default DS.Model.extend({
   apellido: DS.attr(),
   correo: DS.attr(),
   contraseña: DS.attr(),
+  productos: DS.hasMany('producto'),
 
   nombreCompleto: Ember.computed('nombre', 'apellido', function() {
     return `${this.get('nombre')} ${this.get('apellido')}`;

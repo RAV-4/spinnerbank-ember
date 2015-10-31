@@ -5,13 +5,13 @@ export default Ember.Controller.extend({
 
     loginController: Ember.inject.controller('login'),
     isAuthenticated: Ember.computed.reads('loginController.isAuthenticated'),
-    nombreAsesor: Ember.computed.reads('loginController.nombreAsesor'),
-    apellidoAsesor: Ember.computed.reads('loginController.apellidoAsesor'),
+    asesorActual: Ember.computed.reads('loginController.asesorActual'),
 
     actions: {
         desloguear: function() {
             this.set('isAuthenticated', false);
             this.transitionToRoute('/');
+            this.set('asesorActual', null);
         }
     }
 });

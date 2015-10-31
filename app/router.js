@@ -11,7 +11,6 @@ Router.map(function() {
     this.route('clientes');
     this.route('inicio');
     this.route('login');
-    this.route('principal');
 });
 
 export default Router;
