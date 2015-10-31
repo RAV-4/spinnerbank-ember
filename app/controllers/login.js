@@ -1,25 +1,33 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  //session: Ember.inject.service(),
 
-    asesores: [],
-    isAuthenticated: false,
-    loginFailed: false,
+  isAuthenticated: false,
+  loginFailed: false,
+  //usuarioActual: null,
 
-    actions: {
-        loguear: function() {
-            var asesorMail = 'maria.osorno@gmail.com';
-            var asesorPass = 'osornom';
+  actions: {
+      /*
+      login(user){
+        this.get("session").login.user;
+      }
+      */
+      loguear: function() {
+          var asesorMailPrueba = "maria.osorno@spinnerbank.com";
+          var asesorPassPrueba = "osornoms";
 
-            let asesorMailReceptor = this.get('entradaEmail');
-            let asesorPassReceptor = this.get('entradaPassword');
+          let asesorMailReceptor = this.get('entradaEmail');
+          let asesorPassReceptor = this.get('entradaPassword');
 
-            if(asesorMailReceptor === asesorMail && asesorPassReceptor === asesorPass){
-                this.set('isAuthenticated', true);
-                this.transitionToRoute('clientes');
-            } else {
-                this.set('loginFailed', true);
-            }
-        }
-    }
+          if(asesorMailPrueba === asesorMailReceptor && asesorPassPrueba === asesorPassReceptor){
+            this.set('isAuthenticated', true);
+            this.transitionToRoute('clientes');
+            this.set('loginFailed', false);
+            //  this.set('usuarioActual', this.get('entradaEmail'));
+          } else {
+              this.set('loginFailed', true);
+          }
+      }
+  }
 });
