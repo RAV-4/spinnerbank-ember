@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    //session: Ember.inject.service(),
+    session: Ember.inject.service(),
 
     loginController: Ember.inject.controller('login'),
     isAuthenticated: Ember.computed.reads('loginController.isAuthenticated'),
@@ -9,9 +9,8 @@ export default Ember.Controller.extend({
 
     actions: {
         desloguear: function() {
-            this.set('isAuthenticated', false);
             this.transitionToRoute('/');
-            this.set('asesorActual', null);
+            this.get('session').logout();
         }
     }
 });

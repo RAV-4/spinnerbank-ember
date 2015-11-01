@@ -1,22 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  //session: Ember.inject.service(),
+  session: Ember.inject.service(),
 
-  isAuthenticated: false,
+  //isAuthenticated: false,
   loginFailed: false,
   asesorActual: null,
 
   actions: {
-      /*
-      login(user){
-        this.get("session").login.user;
-      }
-      */
 
       loguear: function() {
-          //var asesorMailPrueba = "maria.osorno@spinnerbank.com";
-          //var asesorPassPrueba = "osornoms";
 
           var asesorPrueba = Asesor.create({
             nombre: 'Maria',
@@ -29,10 +22,11 @@ export default Ember.Controller.extend({
           let asesorPassReceptor = this.get('entradaPassword');
 
           if(asesorPrueba.get('correo') === asesorMailReceptor && asesorPrueba.get('contraseña') === asesorPassReceptor){
-            this.set('isAuthenticated', true);
+            //this.set('isAuthenticated', true);
             this.transitionToRoute('clientes');
-            this.set('loginFailed', false);
+            //this.set('loginFailed', false);
             this.set('asesorActual', asesorPrueba.get('nombreCompleto'));
+            this.get("session").login(asesorPrueba.get('nombreCompleto'));
           } else {
               this.set('loginFailed', true);
           }
