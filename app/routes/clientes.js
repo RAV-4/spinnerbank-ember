@@ -1,14 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
+ setupController: function(controller, model) {
+    controller.set('model', model);
+  },
 
-    return $.getJSON(
-    'http://spinnerbank-api-external.herokuapp.com/productos/1936941186',
-    function(data){
-    	return data;
-      }
-    );
+ renderTemplate: function(){
+ 	 	this.render();	
+	this.render('tabla',{
+	into: 'clientes',
+		outlet: 'tabla'
+ 	});
 
-  }
+ }
+
 });

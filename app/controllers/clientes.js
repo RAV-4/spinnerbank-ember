@@ -14,6 +14,12 @@ actions: {
     else{
       this.set('isFailed', true);
     }
+  },
+      search(idClient) {
+        var buscar = 'http://spinnerbank-api-external.herokuapp.com/productos/'+idClient;   
+     $.getJSON(buscar, function(data) {
+       this.set('model', data);
+     }.bind(this));
+    }
   }
-}
 });
