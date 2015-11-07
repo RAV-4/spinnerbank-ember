@@ -16,7 +16,9 @@ actions: {
     }
   },
       search(idClient) {
-        var buscar = 'http://spinnerbank-api-external.herokuapp.com/productos/'+idClient;   
+        var buscar = 'http://spinnerbank-api-external.herokuapp.com/v1/products/'+idClient+'/CC';   
+        //var buscar= 'http://spinnerbank-api-internal.herokuapp.com/user/1/' + idClient + '/product/1/detail/';
+
      $.getJSON(buscar, function(data) {
        this.set('model', data);
      }.bind(this));
