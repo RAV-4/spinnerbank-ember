@@ -1,0 +1,32 @@
+<!-- Información del Cliente -->
+    <div class="panel panel-default">
+    <div class= "panel-heading">
+      <h3 class="panel-title"><strong>Información del Cliente </strong></h3>
+    </div>
+    <div class="panel-body">
+    <table class="table">
+            <thead>
+
+                <tr>
+                    <th>Nombre Cliente</th>
+                    <th>Tipo de Documento</th>
+                    <th>Numero de Documento</th>
+                    <th>IdCliente</th>
+                </tr>
+
+            </thead>
+            <tbody>
+              {{#each model as |item|}}
+              <tr>
+                  <td>{{item.nombre}}</td>
+                  <td>{{item.tipo}}</td>
+                  <td>{{item.saldo}}</td>
+                  <td>{{item.idCliente}}</td>
+
+              </tr>
+              {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+ </div>
