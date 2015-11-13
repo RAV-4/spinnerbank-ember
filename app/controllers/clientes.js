@@ -2,15 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	isFailed:false,
-  bears:['grizly6','men'],
-  ejemplo:'#grizly6',
+
 actions: {
 
   compidClient: function(){
   var prueba  = 1111;
   let idClient = this.get('idClient');
 
-  if (idClient == prueba){
+  if (idClient === prueba){
     window.alert("Se encontro al cliente con el # de Identificación "+idClient);
     this.set('isFailed', false);
     }
@@ -19,11 +18,19 @@ actions: {
     }
   },
       search(idClient) {
-        var buscar = 'http://spinnerbank-api-external.herokuapp.com/v1/products/'+idClient+'/CC';   
-        //var buscar= 'http://spinnerbank-api-internal.herokuapp.com/user/1/' + idClient + '/product/1/detail/';
-
+      var buscar = 'https://spinnerbank-api-internal-demo.herokuapp.com/user/cc/'+idClient+'/productos';
      $.getJSON(buscar, function(data) {
        this.set('model', data);
+       this.set('modelProd', data[0].products);
+       console.log(data[0].products);
+     }.bind(this));
+    },
+
+    searchMov(idProduct){
+      var buscarMov = 'https://spinnerbank-api-internal-demo.herokuapp.com/movements/'+idProduct;
+      $.getJSON(buscarMov, function(data) {
+       this.set('modelMov', data);
+       console.log(data);
      }.bind(this));
     }
   }

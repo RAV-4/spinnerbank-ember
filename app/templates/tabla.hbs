@@ -18,11 +18,9 @@
             <tbody>
               {{#each model as |item|}}
               <tr>
-                  <td>{{item.name}}</td>
-                  <td>{{item.productType}}</td>
-                  <td>{{item.balance}}</td>
-                  <td>{{item.customerId}}</td>
-
+                  <td>{{item.name}} {{item.lastName}}</td>
+                  <td>{{item.documentType}}</td>
+                  <td>{{item.documentNumber}}</td>
               </tr>
               {{/each}}
             </tbody>
@@ -41,6 +39,8 @@
             <thead>
 
                 <tr>
+                    <th>Tipo Producto</th>
+                    <th>Nombre Producto</th>
                     <th>Nombre de Producto</th>
                     <th>Tipo Producto</th>
                     <th>saldo</th>
@@ -48,16 +48,16 @@
 
             </thead>
             <tbody>
-              {{#each bears as |item|}}
-              <tr data-toggle="collapse" data-target="#{{item}}" class="accordion-toggle">
-                  <td>{{item}} </td>
-                  <td>{{item}}</td>
-                  <td>{{item}}</td>
+              {{#each modelProd as |itemProd|}}
+              <tr data-toggle="collapse" data-target="#{{itemProd.id}}" class="accordion-toggle">
+                  <td>{{itemProd.productType}} </td>
+                  <td>{{itemProd.productName}}</td>
+                  <td>{{itemProd.productBalance}}</td>
 
               </tr>
               <tr >
               <!--Lista de movimientos -->
-            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id={{item}}> <h3>Listado de movimientos para el producto {{item}} </h3>
+            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id={{itemProd.id}}> <h3>Listado de movimientos para el producto {{itemProd.productName}} </h3>
             <table class="table">
              <thead>
 
@@ -70,9 +70,9 @@
             </thead>
             <tbody>
              <tr>
-                  <td>{{item}} </td>
-                  <td>{{item}}</td>
-                  <td>{{item}}</td>
+                  <td>123</td>
+                  <td>345</td>
+                  <td>567</td>
 
               </tr>
               
