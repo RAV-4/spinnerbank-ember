@@ -46,33 +46,5 @@
 {{outlet "tabla"}}
 
 
-  <div class="panel panel-default">
-    <div class= "panel-heading">
-      <h3 class="panel-title"><strong>Lista de Productos</strong></h3>
-    </div>
-    <div class="panel-body">
-    <table class="table">
-            <thead>
 
-                <tr>
-                    <th>Nombre de Producto</th>
-                    <th>Tipo Producto</th>
-                    <th>saldo</th>
-                </tr>
-
-            </thead>
-            <tbody>
-              {{#each model as |item|}}
-              <tr>
-                  <td>{{item.nombre}}</td>
-                  <td>{{item.tipo}}</td>
-                  <td>{{item.saldo}}</td>
-
-              </tr>
-              {{/each}}
-            </tbody>
-        </table>
-
-    </div>
- </div>
 

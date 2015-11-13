@@ -30,3 +30,62 @@
 
     </div>
  </div>
+
+ <!-- Lista de productos -->
+  <div class="panel panel-default">
+    <div class= "panel-heading">
+      <h3 class="panel-title"><strong>Lista de Productos</strong></h3>
+    </div>
+    <div class="panel-body">
+    <table class="table">
+            <thead>
+
+                <tr>
+                    <th>Nombre de Producto</th>
+                    <th>Tipo Producto</th>
+                    <th>saldo</th>
+                </tr>
+
+            </thead>
+            <tbody>
+              {{#each bears as |item|}}
+              <tr data-toggle="collapse" data-target="#{{item}}" class="accordion-toggle">
+                  <td>{{item}} </td>
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+
+              </tr>
+              <tr >
+              <!--Lista de movimientos -->
+            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id={{item}}> <h3>Listado de movimientos para el producto {{item}} </h3>
+            <table class="table">
+             <thead>
+
+                <tr>
+                    <th>Fecha Movimiento</th>
+                    <th>Descripción</th>
+                    <th>Valor del Movimiento</th>
+                </tr>
+
+            </thead>
+            <tbody>
+             <tr>
+                  <td>{{item}} </td>
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+
+              </tr>
+              
+            </tbody>
+
+
+            </table>
+            </div> </td>
+        </tr>
+            
+            {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+ </div>

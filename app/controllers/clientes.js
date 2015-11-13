@@ -2,14 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	isFailed:false,
-
+  bears:['grizly6','men'],
+  ejemplo:'#grizly6',
 actions: {
 
   compidClient: function(){
   var prueba  = 1111;
   let idClient = this.get('idClient');
-  if (idClient === prueba){
-    window.alert(idClient);
+
+  if (idClient == prueba){
+    window.alert("Se encontro al cliente con el # de Identificación "+idClient);
+    this.set('isFailed', false);
     }
     else{
       this.set('isFailed', true);
