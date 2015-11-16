@@ -3,7 +3,7 @@
     <div class= "panel-heading">
       <h3 class="panel-title"><strong>Información del Cliente </strong></h3>
     </div>
-    <div class="panel-body">
+    
     <table class="table table-hover">
             <thead>
 
@@ -25,7 +25,7 @@
             </tbody>
         </table>
 
-    </div>
+    
  </div>
 
  <!-- Lista de productos -->
@@ -33,7 +33,7 @@
     <div class= "panel-heading">
       <h3 class="panel-title"><strong>Lista de Productos</strong></h3>
     </div>
-    <div class="panel-body">
+    
     <table class="table table-hover">
             <thead>
 
@@ -41,48 +41,53 @@
                     <th>Tipo Producto</th>
                     <th>Nombre Producto</th>
                     <th>Saldo</th>
+                    <th>Detalle</th>
                 </tr>
 
             </thead>
             <tbody>
-              {{#each modelProd as |itemProd|}}
-              <tr data-toggle="collapse" data-target="#{{itemProd.id}}" class="accordion-toggle">
+              {{#each modelProd as |itemProd|}}    
+              <tr>
                   <td>{{itemProd.productType}} </td>
                   <td>{{itemProd.productName}}</td>
                   <td>{{itemProd.productBalance}}</td>
-
+                  <td><button  class="btn btn-info btn-sm" {{action "showModalDialog" itemProd.id itemProd.productName}}>Ver Movimientos</button></td>
               </tr>
-              <tr >
-              <!--Lista de movimientos -->
-            <td colspan="6" class="hiddenRow"><div  class="accordian-body collapse" id={{itemProd.id}}> <h3 align="center">Listado de movimientos para el producto {{itemProd.productName}} </h3>
-            <table class="table table-hover">
-             <thead>
-
-                <tr>
-                    <th>Fecha Movimiento</th>
-                    <th>Descripción</th>
-                    <th>Valor del Movimiento</th>
-                </tr>
-
-            </thead>
-            <tbody>
-             <tr>
-                  <td>12-11-2015</td>
-                  <td>Retiro</td>
-                  <td>$200.000</td>
-
-              </tr>
-              
-            </tbody>
-
-
-            </table>
-            </div> </td>
-        </tr>
             
             {{/each}}
             </tbody>
         </table>
 
-    </div>
+    
  </div>
+
+{{#if isShowingModal}}
+{{#modal-dialog targetAttachment="center" translucentOverlay=true close='closeModalDialog'}}
+  <div class="panel panel-default">
+    <div class= "panel-heading">
+      <h3 class="panel-title"><strong>Movimientos del Producto {{modalProductName}}</strong></h3>
+    </div>
+    <table class="table table-hover">
+            <thead>
+
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                </tr>
+
+            </thead>
+            <tbody>
+              {{#each modelMov as |itemMov|}}    
+              <tr>
+                  <td>{{itemMov.dateMovement}} </td>
+                  <td>{{itemMov.description}}</td>
+                  <td>{{itemMov.valueMovement}}</td>
+              </tr>            
+            {{/each}}
+            </tbody>
+        </table>
+    
+  </div>
+{{/modal-dialog}}
+{{/if}}
