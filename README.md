@@ -23,6 +23,8 @@ You will need the following things properly installed on your computer.
 * `npm install`
 * `bower install`
 * `npm install --save-dev ember-cli-content-security-policy` (El comando de arriba es para las politicas de seguridad)
+* `ember install ember-modal-dialog` para el uso de Modal Dialog
+* `ember install ember-cli-sass` para el uso de Modal Dialog
 
 ## Running / Development
 
