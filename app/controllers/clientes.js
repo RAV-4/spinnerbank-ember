@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	isFailed:false,
+  isCommit:false,
   isShowingModal: false,
 
 actions: {
@@ -19,11 +20,15 @@ actions: {
     }
   },
   
-  search(idClient) {
-      var buscar = 'https://spinnerbank-api-internal-demo.herokuapp.com/user/cc/'+idClient+'/productos';
+  searchProd: function(){
+    var td=this.get('tipoDocumento');
+    var nd=this.get('idClient');
+    this.set('isCommit',false);
+      var buscar = 'https://spinnerbank-api-internal-demo.herokuapp.com/user/'+td+'/'+nd+'/productos';
       $.getJSON(buscar, function(data) {
       this.set('model', data);
       this.set('modelProd', data[0].products);
+      this.set('isCommit',true);
      }.bind(this));
     },
 
@@ -31,14 +36,14 @@ actions: {
       var buscar = 'https://spinnerbank-api-internal-demo.herokuapp.com/movements/'+idProduct;
       $.getJSON(buscar, function(data) {
       this.set('modelMov', data);
-      this.set('modalProductName', productName)
+      this.set('modalProductName', productName);
        console.log(productName);
      }.bind(this));
-      this.set('isShowingModal',true)
+      this.set('isShowingModal',true);
     },
 
     closeModalDialog(){
-      this.set('isShowingModal',false)
+      this.set('isShowingModal',false);
     }
   }
 });
