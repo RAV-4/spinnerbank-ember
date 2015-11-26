@@ -50,7 +50,7 @@
               <tr>
                   <td>{{itemProd.productType}} </td>
                   <td>{{itemProd.productName}}</td>
-                  <td>{{itemProd.productBalance}}</td>
+                  <td class="text-success">${{itemProd.productBalance}}</td>
                   <td><button  class="btn btn-info btn-sm" {{action "showModalDialog" itemProd.id itemProd.productName}}>Ver Movimientos</button></td>
               </tr>
             
@@ -82,7 +82,7 @@
               <tr>
                   <td>{{itemMov.dateMovement}} </td>
                   <td>{{itemMov.description}}</td>
-                  <td>{{itemMov.valueMovement}}</td>
+                  <td class="text-success" >${{itemMov.valueMovement}}</td>
               </tr>            
             {{/each}}
             </tbody>

@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
 
 actions: {
 
-  compidClient: function(){
+  /*compidClient: function(){
   var prueba  = 1111;
   let idClient = this.get('idClient');
 
@@ -18,7 +18,7 @@ actions: {
     else{
       this.set('isFailed', true);
     }
-  },
+  },*/
   
   searchProd: function(){
     var td=this.get('tipoDocumento');
