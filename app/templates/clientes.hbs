@@ -4,33 +4,44 @@
     <div class="panel-heading">
       <h3 class="panel-title"><strong>Buscar cliente: </strong></h3>
     </div>
+    <div class="panel-body" style="clear:both">
     <form class="form-inline" {{action "searchProd" on="submit"}}>
-      <table class="table table-hover">
-        <tr>
-          <td>
-            <div class="container-fluid">
-              <label>Tipo de Documento</label>
-              <br>
-              {{radio-button value='cc' checked=tipoDocumento required="true"}}<label> - Cédula de Ciudadanía</label><br>
-              {{radio-button value='ce' checked=tipoDocumento required="true"}}<label> - Cédula de Extranjería</label><br>
-              {{radio-button value='nit' checked=tipoDocumento required="true"}}<label> - NIT</label><br>
+      <table>
+      <tr>
+         <td>
+            <div class="container-fluid" >
+              <label>Tipo de Documento:</label>
+
+              <select class="form-control">
+              <option value ="cc" id ="cedula">Cédula de Ciudadanía</option>
+
+              <option value ="ce" id ="cedula">Cédula de Extranjería</option>
+
+              <option value ="nit" id ="cedula">NIT</option>
+              </select>
+             
+              
+             
             </div>
-          </td>
-          <td>
-            <div class="container-fluid">
-              <label>Numero de Documento</label>
-              <br>
+         </td>
+         <td>
+         <div class="container-fluid" >
+<label>Numero de Documento:</label>
+
+              
               {{input type="integer" class="form-control" value=idClient required="true"}}
-            </div>
-          </td>
-          <td>
-            <div class="container-fluid">
-              <button type="submit" class="btn btn-info btn-block">Buscar</button>
-            </div>
-          </td>
-        </tr>
-      </table>
+              
+              </div>
+              </td>
+               <td>
+               <div class="container-fluid" >
+                <button type="submit" class="btn btn-info">Buscar</button>
+               </div>
+         </td>          </tr>
+       </table>
+      
     </form>
+    </div>
     {{#if isFailed}}
     <div class="alert alert-danger" role="alert">
       <span class="error"></span>

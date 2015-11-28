@@ -21,8 +21,9 @@ actions: {
   },*/
   
   searchProd: function(){
-    var td=this.get('tipoDocumento');
+   // var td=this.get('tipoDocumento');
     var nd=this.get('idClient');
+    var td = document.getElementById('cedula').value;
     this.set('isCommit',false);
       var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+td+'/'+nd+'/productos';
       $.getJSON(buscar, function(data) {
