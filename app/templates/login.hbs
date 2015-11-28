@@ -1,16 +1,20 @@
 <div class="container-fluid">
-  <form class="form-signin"{{action "loguear" on="submit"}}>
-      <h2 class="form-signin-heading text-center">Por favor loguese</h2>
-      <label for="inputEmail" class="sr-only">Dirección de Correo</label> 
-      {{input type="email" id="inputEmail" value=entradaEmail class="form-control" placeholder="Dirección de Correo"}}
-      <br>
-      <label for="inputPassword" class="sr-only">Constraseña</label>
-      {{input type="password" id="inputPassword" value=entradaPassword class="form-control" placeholder="Contraseña"}}
-      <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" > Ingresar </button>
-      <br>
-      {{#if loginFailed}}
-          <div class="alert alert-danger text-center" role="alert"> Usuario y/o contraseña incorrectos </div>
-      {{/if}}
-  </form>
+  <div class="row">
+    <div ALIGN=center class="col-sm-6 col-md-4 col-md-offset-4">
+      <form class="form-signin"{{action "loguear" on="submit"}}>
+        <h2 class="form-signin-heading text-center">Por favor loguese</h2>
+        <label for="inputEmail" class="sr-only">Dirección de Correo</label> 
+        {{input type="email" id="inputEmail" value=entradaEmail class="form-control" placeholder="Dirección de Correo"}}
+        <br>
+        <label for="inputPassword" class="sr-only">Constraseña</label>
+        {{input type="password" id="inputPassword" value=entradaPassword class="form-control" placeholder="Contraseña"}}
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" > Ingresar </button>
+        <br>
+        {{#if loginFailed}}
+        <div class="alert alert-danger text-center" role="alert"> Usuario y/o contraseña incorrectos </div>
+        {{/if}}
+      </form>
+    </div>
+  </div>
 </div>

@@ -5,46 +5,35 @@ export default Ember.Controller.extend({
   isCommit:false,
   isShowingModal: false,
 
-actions: {
+  actions: {
 
-  /*compidClient: function(){
-  var prueba  = 1111;
-  let idClient = this.get('idClient');
-
-  if (idClient === prueba){
-    window.alert("Se encontro al cliente con el # de Identificación "+idClient);
-    this.set('isFailed', false);
-    }
-    else{
-      this.set('isFailed', true);
-    }
-  },*/
-  
-  searchProd: function(){
+//se hace la llamada la api, con el numero de documento y tipo del mismo, consulta la cual trae retorna datos personales del cliente  y los productos que tiene  
+searchProd: function(){
    // var td=this.get('tipoDocumento');
-    var nd=this.get('idClient');
-    var td = document.getElementById('cedula').value;
-    this.set('isCommit',false);
-      var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+td+'/'+nd+'/productos';
-      $.getJSON(buscar, function(data) {
-      this.set('model', data);
-      this.set('modelProd', data[0].products);
-      this.set('isCommit',true);
-     }.bind(this));
-    },
+   var nd=this.get('idClient');
+   var td = document.getElementById('tipo').value;
+   this.set('isCommit',false);
+   var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+td+'/'+nd+'/productos';
+   $.getJSON(buscar, function(data) {
+    this.set('model', data);
+    this.set('modelProd', data[0].products);
+    this.set('isCommit',true);
+  }.bind(this));
+ },
 
-    showModalDialog(idProduct,productName){
-      var buscar = 'https://spinnerbank-api-internal.herokuapp.com/product/'+idProduct+'/movements';
-      $.getJSON(buscar, function(data) {
-      this.set('modelMov', data);
-      this.set('modalProductName', productName);
-       console.log(productName);
-     }.bind(this));
-      this.set('isShowingModal',true);
-    },
+//Se hace uso de la api, se consume con el id de un producto determinado, retorna los movimientos de dicho producto
+showModalDialog(idProduct,productName){
+  var buscar = 'https://spinnerbank-api-internal.herokuapp.com/product/'+idProduct+'/movements';
+  $.getJSON(buscar, function(data) {
+    this.set('modelMov', data);
+    this.set('modalProductName', productName);
+    console.log(productName);
+  }.bind(this));
+  this.set('isShowingModal',true);
+},
 
-    closeModalDialog(){
-      this.set('isShowingModal',false);
-    }
-  }
+closeModalDialog(){
+  this.set('isShowingModal',false);
+}
+}
 });
