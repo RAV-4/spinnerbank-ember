@@ -24,7 +24,7 @@ actions: {
     var td=this.get('tipoDocumento');
     var nd=this.get('idClient');
     this.set('isCommit',false);
-      var buscar = 'https://spinnerbank-api-internal-demo.herokuapp.com/user/'+td+'/'+nd+'/productos';
+      var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+td+'/'+nd+'/productos';
       $.getJSON(buscar, function(data) {
       this.set('model', data);
       this.set('modelProd', data[0].products);
@@ -33,7 +33,7 @@ actions: {
     },
 
     showModalDialog(idProduct,productName){
-      var buscar = 'https://spinnerbank-api-internal-demo.herokuapp.com/movements/'+idProduct;
+      var buscar = 'https://spinnerbank-api-internal.herokuapp.com/product/'+idProduct+'/movements';
       $.getJSON(buscar, function(data) {
       this.set('modelMov', data);
       this.set('modalProductName', productName);
