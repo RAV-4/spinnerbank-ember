@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
             this.get('session').logout();
         },
         searchSol:  function(){
-            this.get('solicitudesController').searchSol();
+            this.get('solicitudesController').searchSol(this.get('session').identi);
         }
 
     }

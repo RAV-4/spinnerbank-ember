@@ -18,21 +18,18 @@ export default Ember.Controller.extend({
             contraseña: 'osornoms'
           });*/
 
-let asesorMailReceptor = this.get('entradaEmail');
-let asesorPassReceptor = this.get('entradaPassword');
+    let asesorMailReceptor = this.get('entradaEmail');
+    let asesorPassReceptor = this.get('entradaPassword');
 
-var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+asesorMailReceptor+'/123/productos';
-$.getJSON(buscar, function(data) {
+    var buscar = 'http://spinnerbank-api-internal.herokuapp.com/temp/login/'+asesorMailReceptor+'/'+asesorPassReceptor;
+      $.getJSON(buscar, function(data) {
+        console.log(data[0]);
 
-console.log(data[0].documentNumber);
-console.log(asesorPassReceptor);
-
-
-if(data[0].documentType === asesorMailReceptor && data[0].name === asesorPassReceptor){
+      if(data[0].email === asesorMailReceptor ){
             //this.set('isAuthenticated', true);
             this.transitionToRoute('clientes');
             //this.set('loginFailed', false);
-            this.set('currentUser', data[0].name);
+            this.set('currentUser', data[0].email);
             this.get("session").login(data[0]);
           } else {
             this.set('loginFailed', true);
