@@ -26,6 +26,7 @@ You will need the following things properly installed on your computer.
 * `ember install ember-modal-dialog` para el uso de Modal Dialog
 * `ember install ember-cli-sass` para el uso de Modal Dialog
 * `bower install js-cookie --save` para la libreria de la cookie
+* `npm install -g phantomjs` para poder ver los informes de errores desde la consola sin necesidad de abrir el navegador
 ## Running / Development
 
 * `ember server`
@@ -39,6 +40,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember test`
 * `ember test --server`
+* `localhost:4200/tests`
 
 ### Building
 
