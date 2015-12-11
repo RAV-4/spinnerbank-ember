@@ -1,3 +1,26 @@
+<script type="text/javascript">
+  function tipoDocumento(x){
+
+    if("cc" == x){
+      document.getElementById('tipoDocu').innerHTML="Cedula de Ciudadanía";
+    }else{
+      if("ce" == x){
+        document.getElementById('tipoDocu').innerHTML="Cedula de Extranjería";
+      }else{
+        if("nit" == x){
+          document.getElementById('tipoDocu').innerHTML="NIT";
+        }
+      }
+    }
+  }
+
+  function formatoFecha(fec,y){
+    var msec = Date.parse(fec);
+    var d = new Date(msec);
+    document.getElementById(y).innerHTML=d.getUTCFullYear()+"/"+d.getUTCMonth()+"/"+d.getUTCDay()+" : "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds();
+  }
+</script>
+
 <!-- Información del Cliente -->
     <div class="panel panel-default">
     <div class= "panel-heading">
@@ -6,7 +29,6 @@
     
     <table class="table table-hover">
             <thead>
-
                 <tr>
                     <th>Nombre Cliente</th>
                     <th>Tipo de Documento</th>
@@ -18,14 +40,15 @@
               {{#each model as |item|}}
               <tr>
                   <td>{{item.name}} {{item.lastName}}</td>
-                  <td>{{item.documentType}}</td>
-                  <td>{{item.documentNumber}}</td>
+                  <td id='tipoDocu'></td>
+                  <td{{action "infoCliente" item.documentNumber item.documentType}}>{{item.documentNumber}}</td>
+                  <script type="text/javascript">
+                    tipoDocumento("{{item.documentType}}");
+                  </script>
               </tr>
               {{/each}}
             </tbody>
-        </table>
-
-    
+        </table>    
  </div>
 
  <!-- Lista de productos -->
@@ -81,9 +104,12 @@
             <tbody>
               {{#each modelMov as |itemMov|}}    
               <tr>
-                  <td>{{itemMov.dateMovement}} </td>
+                  <td id='{{itemMov.id}}'>{{itemMov.dateMovement}} </td>
                   <td>{{itemMov.description}}</td>
                   <td class="text-success" >${{itemMov.valueMovement}}</td>
+                  <script type="text/javascript">
+                    formatoFecha("{{itemMov.dateMovement}}","{{itemMov.id}}");
+                  </script>
               </tr>            
             {{/each}}
             </tbody>

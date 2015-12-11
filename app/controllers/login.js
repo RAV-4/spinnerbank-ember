@@ -5,34 +5,43 @@ export default Ember.Controller.extend({
 
   //isAuthenticated: false,
   loginFailed: false,
-  asesorActual: null,
+  currentUser: null,
 
   actions: {
 
-      loguear: function() {
+    loguear: function() {
 
-          var asesorPrueba = Asesor.create({
+          /*var asesorPrueba = Asesor.create({
             nombre: 'Maria',
             apellido: 'Osorno',
             correo: 'maria.osorno@spinnerbank.com',
             contraseña: 'osornoms'
-          });
+          });*/
 
-          let asesorMailReceptor = this.get('entradaEmail');
-          let asesorPassReceptor = this.get('entradaPassword');
+let asesorMailReceptor = this.get('entradaEmail');
+let asesorPassReceptor = this.get('entradaPassword');
 
-          if(asesorPrueba.get('correo') === asesorMailReceptor && asesorPrueba.get('contraseña') === asesorPassReceptor){
+var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+asesorMailReceptor+'/123/productos';
+$.getJSON(buscar, function(data) {
+
+console.log(data[0].documentNumber);
+console.log(asesorPassReceptor);
+
+
+if(data[0].documentType === asesorMailReceptor && data[0].name === asesorPassReceptor){
             //this.set('isAuthenticated', true);
             this.transitionToRoute('clientes');
             //this.set('loginFailed', false);
-            this.set('asesorActual', asesorPrueba.get('nombreCompleto'));
-            this.get("session").login(asesorPrueba.get('nombreCompleto'));
+            this.set('currentUser', data[0].name);
+            this.get("session").login(data[0]);
           } else {
-              this.set('loginFailed', true);
+            this.set('loginFailed', true);
           }
+          }.bind(this));
+        }
       }
-  }
-});
+      
+    });
 
 //Objeto-Clase Asesor
 var Asesor = Ember.Object.extend({

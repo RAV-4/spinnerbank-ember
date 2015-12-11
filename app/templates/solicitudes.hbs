@@ -1,0 +1,79 @@
+<script type="text/javascript">
+  function tipoDocumento(x,z,w){
+
+    if("cc" == x){
+      document.getElementById(z+w).innerHTML="Cedula de Ciudadanía";
+    }else{
+      if("ce" == x){
+        document.getElementById(z+w).innerHTML="Cedula de Extranjería";
+      }else{
+        if("nit" == x){
+          document.getElementById(z+w).innerHTML="NIT";
+        }
+      }
+    }
+  }
+
+  function formatoFecha(fec,y){
+    var msec = Date.parse(fec);
+    var d = new Date(msec);
+    document.getElementById(y).innerHTML=d.getUTCFullYear()+"/"+d.getUTCMonth()+"/"+d.getUTCDay()+" : "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds();
+  }
+
+  function estadoSolicitud(est,n,r){
+  	if("Pendiente" == est){
+  		document.getElementById(n+r).innerHTML="Definir"
+  		document.getElementById(est+r).style.background='#00ff7f'
+  	}else{
+  		if("Aprobada" == est){
+  			document.getElementById(n+r).innerHTML="Aprobada"
+  		}else{
+  			if("Rechazada" == est){
+  				document.getElementById(n+r).innerHTML="Rechazada"
+  			}
+  		}
+  	}
+  }
+
+</script>
+
+
+<div class="panel panel-default">
+	<div class= "panel-heading">
+		<h3 class="panel-title"><strong>Solicitudes</strong></h3>
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre del Producto</th>
+				<th>Tipo de Prodcuto</th>
+				<th>Cupo</th>
+				<th>Nombre del Cliente</th>
+				<th>Tipo de Documento</th>
+				<th>Numero de Documento</th>
+				<th>Fecha de la Solicitud</th>
+				<th>Estado de la Solitud</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each model as |item|}}
+			<tr id="{{item.state}}{{item.idRequest}}">
+				<td>{{item.productName}}</td>
+				<td>{{item.productType}}</td>
+				<td>{{item.cupo}}</td>
+				<td>{{item.clientName}} {{item.lastName}}</td>
+				<td id='{{item.documentType}}{{item.idRequest}}'></td>
+				<td>{{item.documentNumber}}</td>
+				<td id='{{item.idRequest}}'></td>
+				<td>
+					<button id='{{item.documentNumber}}{{item.idRequest}}' class="btn btn-info btn-sm"></button></td>
+                <script type="text/javascript">
+                	tipoDocumento("{{item.documentType}}","{{item.documentType}}","{{item.idRequest}}")
+                	formatoFecha("{{item.dateRequest}}","{{item.idRequest}}");
+                	estadoSolicitud("{{item.state}}","{{item.documentNumber}}","{{item.idRequest}}");
+                </script>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

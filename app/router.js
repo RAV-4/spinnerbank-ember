@@ -6,11 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-    this.route('contacto');
-    this.route('perfil');
-    this.route('clientes');
-    this.route('inicio');
-    this.route('login');
+  this.route('contacto');
+  this.route('perfil');
+  this.route('clientes');
+  this.route('inicio');
+  this.route('login');
+  this.route('solicitudes');
+  this.route('infoCliente');
 });
 
 export default Router;

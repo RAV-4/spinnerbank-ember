@@ -21,6 +21,7 @@
              {{#if session.currentUser}}
                  <ul class="nav navbar-nav">
                      <li>{{#link-to "clientes"}}Clientes{{/link-to}}</li>
+                     <li {{action "searchSol"}}>{{#link-to "solicitudes"}}Gestión de Solicitudes{{/link-to}}</li> 
                  </ul>
              {{else}}
 
@@ -29,7 +30,7 @@
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
              <ul class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
                  {{#if session.currentUser}}
-                     <li><p class="navbar-text">Bienvenid@ {{asesorActual}}</p></li>
+                     <li><p class="navbar-text">Bienvenid@ {{session.currentUser}}</p></li>
                      <li {{action "desloguear"}}>{{#link-to "login"}}Logout{{/link-to}}</li>
                  {{else}}
                      <li>{{#link-to "login"}}Login{{/link-to}}</li>

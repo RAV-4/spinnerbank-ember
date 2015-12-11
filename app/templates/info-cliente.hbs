@@ -1,0 +1,45 @@
+<script type="text/javascript">
+  function tipoDocumento(x){
+
+    if("cc" == x){
+      document.getElementById('tipoDocu').innerHTML="Cedula de Ciudadanía";
+    }else{
+      if("ce" == x){
+        document.getElementById('tipoDocu').innerHTML="Cedula de Extranjería";
+      }else{
+        if("nit" == x){
+          document.getElementById('tipoDocu').innerHTML="NIT";
+        }
+      }
+    }
+  }
+</script>
+<!-- Información del Cliente -->
+    <div class="panel panel-default">
+    <div class= "panel-heading">
+      <h3 class="panel-title"><strong>Información del Cliente </strong></h3>
+    </div>
+    
+    <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre Cliente</th>
+                    <th>Tipo de Documento</th>
+                    <th>Numero de Documento</th>
+                </tr>
+
+            </thead>
+            <tbody>
+              {{#each model as |item|}}
+              <tr>
+                  <td>{{item.name}} {{item.lastName}}</td>
+                  <td id='tipoDocu'></td>
+                  <td>{{item.documentNumber}}</td>
+                  <script type="text/javascript">
+                    tipoDocumento("{{item.documentType}}");
+                  </script>
+              </tr>
+              {{/each}}
+            </tbody>
+        </table>    
+ </div>

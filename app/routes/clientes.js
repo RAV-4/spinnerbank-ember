@@ -7,8 +7,8 @@ export default Ember.Route.extend({
 
  renderTemplate: function(){
  	 	this.render();	
-	this.render('tabla',{
-	into: 'clientes',
+		this.render('tabla',{
+		into: 'clientes',
 		outlet: 'tabla'
  	});
 
