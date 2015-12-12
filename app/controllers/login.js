@@ -22,7 +22,9 @@ export default Ember.Controller.extend({
     let asesorPassReceptor = this.get('entradaPassword');
 
     var buscar = 'http://spinnerbank-api-internal.herokuapp.com/temp/login/'+asesorMailReceptor+'/'+asesorPassReceptor;
+       /*jshint -W117*/ //elimina la alerta del no definido
       $.getJSON(buscar, function(data) {
+         /*jshint +W117*/ //elimina la alerta del no definido
         console.log(data[0]);
 
       if(data[0].email === asesorMailReceptor ){
@@ -40,6 +42,7 @@ export default Ember.Controller.extend({
       
     });
 
+/**
 //Objeto-Clase Asesor
 var Asesor = Ember.Object.extend({
   nombre: null,
@@ -51,3 +54,4 @@ var Asesor = Ember.Object.extend({
     return `${this.get('nombre')} ${this.get('apellido')}`;
   })
 });
+**/

@@ -17,7 +17,9 @@ export default Ember.Controller.extend({
        var td = document.getElementById('tipo').value;
        this.set('isCommit',false);
        var buscar = 'https://spinnerbank-api-internal.herokuapp.com/user/'+td+'/'+nd+'/productos';
+        /*jshint -W117*/ //elimina la alerta del no definido
        $.getJSON(buscar, function(data) {
+         /*jshint +W117*/ //elimina la alerta del no definido
         this.set('model', data);
         this.set('modelProd', data[0].products);
         this.set('isCommit',true);
@@ -27,7 +29,9 @@ export default Ember.Controller.extend({
     //Se hace uso de la api, se consume con el id de un producto determinado, retorna los movimientos de dicho producto
     showModalDialog(idProduct,productName){
       var buscar = 'https://spinnerbank-api-internal.herokuapp.com/product/'+idProduct+'/movements';
+       /*jshint -W117*/ //elimina la alerta del no definido
       $.getJSON(buscar, function(data) {
+         /*jshint +W117*/ //elimina la alerta del no definido
         this.set('modelMov', data);
         this.set('modalProductName', productName);
       }.bind(this));
